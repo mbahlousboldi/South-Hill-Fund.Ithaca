@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>South Hill Fund — Ithaca College School of Business</title>
+<meta name="description" content="South Hill Fund: the student-managed Equity, Fixed Income, and CTC funds at the Ithaca College School of Business." />
+<link rel="stylesheet" href="css/style.css?v=9" />
+</head>
+<body>
+
+  <!-- Live ticker tape -->
+  <div class="ticker-bar">
+    <div class="ticker-track" id="tickerTrack">
+      <!-- populated by app.js, duplicated once for seamless loop -->
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <div class="brand">
+        <img src="img/ic-logo.svg" alt="Ithaca College logo" class="logo"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'logo-fallback',textContent:'IC'}))" />
+        <div class="brand-text">
+          <span class="school">Ithaca College · School of Business</span>
+          <span class="name">South Hill Fund</span>
+        </div>
+      </div>
+      <nav class="tabs" id="mainTabs">
+        <button data-view="overview" class="active">Overview</button>
+        <button data-view="equity">Equity</button>
+        <button data-view="fixedIncome">Fixed Income</button>
+        <button data-view="ctc">CTC</button>
+        <button data-view="performance">Performance</button>
+        <button data-view="gallery">Experience</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== OVERVIEW ===================== -->
+  <main id="view-overview">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="hero-eyebrow"><span class="status-pip"></span> STUDENT-MANAGED INVESTMENT PROGRAM</div>
+            <h1>Where finance students <em>manage the market,</em> not just study it.</h1>
+        <p class="lede">
+          The South Hill Fund gives Ithaca College students a professional-style
+          investment experience: research a security, build the thesis, defend the
+          recommendation, and manage a portfolio from the School of Business trading room.
+        </p>
+            <div class="hero-actions">
+              <button class="btn-primary" data-view="equity">Explore the funds <span>→</span></button>
+              <button class="btn-ghost" data-view="gallery">See students in action <span>↗</span></button>
+            </div>
+          </div>
+          <figure class="hero-campus">
+            <img src="https://www.ithaca.edu/sites/default/files/styles/max_width_1920/public/2021-03/icfountains_3.jpg.webp?itok=VZi2_oy7" alt="Aerial view of Ithaca College campus and Dillingham Fountains" loading="eager" />
+            <figcaption>Ithaca College's South Hill campus · Photo: Ithaca College</figcaption>
+          </figure>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="label">COMBINED AUM</div>
+            <div class="value total" id="combinedAum">$1,564,074.68</div>
+            <div class="delta" id="combinedDelta">as of Aug 31, 2026</div>
+          </div>
+          <div class="hero-stat">
+            <div class="label">EQUITY FUND</div>
+            <div class="value" id="ovEquityValue">$1,186,305.87</div>
+            <div class="delta up" id="ovEquityDelta">▲ $28,740.83 this month</div>
+          </div>
+          <div class="hero-stat">
+            <div class="label">FIXED INCOME FUND</div>
+            <div class="value" id="ovFiValue">$179,011.98</div>
+            <div class="delta up" id="ovFiDelta">▲ $10.51 this month</div>
+          </div>
+          <div class="hero-stat">
+            <div class="label">CTC FUND</div>
+            <div class="value" id="ovCtcValue">$198,756.83</div>
+            <div class="delta up" id="ovCtcDelta">▲ $4,659.22 this month</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="market-strip">
+      <div class="wrap market-strip-inner">
+        <span><span class="status-pip"></span> MARKET DATA</span>
+        <strong id="marketStatus">Loading live quotes…</strong>
+        <span class="strip-note">Portfolio values combine live security prices with latest statement data.</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">PORTFOLIO ARCHITECTURE</p>
+            <h2>The three funds</h2>
+          </div>
+          <p>Three student teams. Three investment mandates. One experiential learning program.</p>
+          <p>Each fund is run by a different student group, with its own mandate, benchmark, and risk profile.</p>
+        </div>
+        <div class="fund-grid" id="fundGrid">
+          <!-- populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <section class="panel program">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">THE EXPERIENCE</p>
+            <h2>Built like an investment firm</h2>
+          </div>
+          <p>Students move from analysis to accountability in a professional environment.</p>
+        </div>
+        <div class="experience-grid">
+          <article class="experience-card">
+            <span class="step">01</span>
+            <h3>Research</h3>
+            <p>Students analyze companies, securities, markets, and macroeconomic conditions using professional tools.</p>
+          </article>
+          <article class="experience-card">
+            <span class="step">02</span>
+            <h3>Pitch</h3>
+            <p>Investment ideas are presented, challenged, and defended before faculty, alumni, and industry professionals.</p>
+          </article>
+          <article class="experience-card">
+            <span class="step">03</span>
+            <h3>Manage</h3>
+            <p>Approved ideas become portfolio decisions, creating a direct connection between classroom analysis and investment outcomes.</p>
+          </article>
+          <article class="experience-card">
+            <span class="step">04</span>
+            <h3>Communicate</h3>
+            <p>Students learn to explain performance, risk, valuation, and strategy with the clarity expected in the profession.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel mission">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>About the program</h2>
+          <p>What the fund is, and where to go for course information.</p>
+        </div>
+        <div class="mission-grid">
+          <p>
+            The South Hill Fund is the umbrella for Ithaca College School of Business's
+            student-managed investment portfolios, based in the school's trading room.
+            Students research holdings, defend theses to faculty and alumni, and manage
+            live capital across equity, fixed income, and growth mandates — building the
+            same skills used on real trading floors, from the NYSE to asset managers
+            across the industry.
+          </p>
+          <div class="info-card">
+            <h3>Looking for course information?</h3>
+            <p>
+              For details on the Equity Analysis, Fixed Income, and related courses,
+              visit the official Ithaca College School of Business site.
+            </p>
+            <a class="btn-outline" href="https://www.ithaca.edu/business" target="_blank" rel="noopener">
+              Visit ICSB &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== PERFORMANCE ===================== -->
+  <main id="view-performance" class="hidden">
+    <section class="performance-hero">
+      <div class="wrap">
+        <p class="section-kicker">INVESTMENT PERFORMANCE</p>
+        <h1>Performance that shows the work.</h1>
+        <p class="lede">Results from the South Hill Fund's student-managed portfolios, measured against market benchmarks. Performance data below is sourced from the portfolio reports dated September 5, 2026.</p>
+        <div class="performance-note"><span class="status-pip"></span> Performance period: May 14, 2024 – September 5, 2026 · Returns over one year are annualized.</div><p class="performance-period-note">The return figures below are measured from <strong>May 14, 2024</strong>, the start date shown in the supplied Schwab performance reports. This is the reporting period used for the fund’s current Schwab account history.</p>
+      </div>
+    </section>
+    <section class="panel performance-panel"><div class="wrap"><div class="performance-grid">
+      <article class="performance-card featured"><div class="perf-card-top"><div><span class="fund-badge">EQUITY FUND</span><span class="source-label">Report label: Corporate</span></div><span class="perf-date">09/05/2026</span></div><h2>39.28%</h2><p class="perf-subtitle">Cumulative rate of return <strong>since May 14, 2024</strong></p><div class="perf-highlight"><strong>15.40%</strong><span>annualized return</span></div><div class="perf-bar"><div><span>Fund</span><b style="width:75.2%"></b><em>39.28%</em></div><div><span>S&amp;P 500</span><b style="width:100%"></b><em>52.25%</em></div></div><p class="perf-footnote">Ending value <strong>$1,190,332.40</strong> · Investment change <strong>+$339,910.32</strong></p></article>
+      <article class="performance-card"><div class="perf-card-top"><span class="fund-badge">CTC FUND</span><span class="perf-date">09/05/2026</span></div><h2>43.37%</h2><p class="perf-subtitle">Cumulative rate of return <strong>since May 14, 2024</strong></p><div class="perf-highlight"><strong>16.85%</strong><span>annualized return</span></div><div class="perf-bar"><div><span>CTC</span><b style="width:83.0%"></b><em>43.37%</em></div><div><span>S&amp;P 500</span><b style="width:100%"></b><em>52.25%</em></div></div><p class="perf-footnote">Ending value <strong>$200,067.51</strong> · Investment change <strong>+$56,434.43</strong></p></article>
+    </div></div></section>
+    <section class="panel"><div class="wrap"><div class="section-head"><div><p class="section-kicker">BENCHMARKS</p><h2>How the portfolios compare</h2></div><p>Returns reported for the same performance period shown in the supplied Schwab reports, May 14, 2024 through September 5, 2026.</p></div>
+      <div class="benchmark-table-wrap"><table class="benchmark-table"><thead><tr><th>Portfolio / Index</th><th>Cumulative return<br>since May 14, 2024</th><th>Annualized return</th></tr></thead><tbody>
+        <tr><td><span class="table-dot"></span>Equity Fund / Corporate</td><td>39.28%</td><td>15.40%</td></tr>
+        <tr><td><span class="table-dot"></span>CTC Fund</td><td>43.37%</td><td>16.85%</td></tr>
+        <tr><td><span class="table-dot"></span>S&amp;P 500</td><td>52.25%</td><td>—</td></tr>
+        <tr><td><span class="table-dot"></span>Dow Jones Industrial Average</td><td>41.09%</td><td>—</td></tr>
+        <tr><td><span class="table-dot"></span>Russell 2000</td><td>48.78%</td><td>—</td></tr>
+      </tbody></table></div><p class="data-disclaimer">Source: portfolio performance reports supplied for the South Hill Fund, both dated September 5, 2026. The Equity Fund report identifies the portfolio as “Corporate”; the website retains “Equity Fund” as the fund navigation name. The CTC report compares CTC with the S&amp;P 500®, Dow Jones Industrial Average (DJIA), and Russell 2000®. The S&amp;P 500® return of 52.25% is shown once because it is the same benchmark return reported in both portfolio reports. Annualized benchmark returns are not shown because they were not separately reported in the supplied performance reports.</p>
+    </div></section>
+    <section class="panel performance-panel"><div class="wrap"><div class="section-head"><div><p class="section-kicker">VALUE CREATION</p><h2>Portfolio growth beyond contributions</h2></div><p>Investment change separates portfolio results from capital added during the period.</p></div><div class="growth-grid">
+      <article class="growth-card"><span>Equity Fund / Corporate</span><div class="growth-number">+$339,910.32</div><div class="growth-row"><label>Net contributions</label><strong>+$83,732.57</strong></div><div class="growth-row"><label>Investment gain/loss</label><strong>+$311,531.28</strong></div><div class="growth-row"><label>Income</label><strong>+$28,379.04</strong></div><div class="growth-row"><label>Ending value</label><strong>$1,190,332.40</strong></div></article>
+      <article class="growth-card"><span>CTC Fund</span><div class="growth-number">+$56,434.43</div><div class="growth-row"><label>Net contributions</label><strong>+$38,307.95</strong></div><div class="growth-row"><label>Investment gain/loss</label><strong>+$51,746.26</strong></div><div class="growth-row"><label>Income</label><strong>+$4,690.40</strong></div><div class="growth-row"><label>Ending value</label><strong>$200,067.51</strong></div></article>
+    </div></div></section>
+  </main>
+
+  <!-- ===================== FUND DETAIL (shared template, filled per fund) ===================== -->
+  <main id="view-fund-detail" class="hidden">
+    <section class="panel" style="padding-top:44px;">
+      <div class="wrap">
+        <div class="fund-detail-head">
+          <div>
+            <h2 id="fdName">Fund name</h2>
+            <p class="fund-tagline" id="fdTagline">Tagline</p>
+          </div>
+        </div>
+
+        <div class="fund-stat-row" id="fdStatRow">
+          <!-- populated by app.js -->
+        </div>
+
+        <div class="alloc-legend" id="fdAllocLegend" style="margin-bottom:20px;"></div>
+
+        <table class="holdings">
+          <thead>
+            <tr>
+              <th>Holding</th>
+              <th class="num">Shares</th>
+              <th class="num">Price</th>
+              <th class="num">Change</th>
+              <th class="num">Market value</th>
+              <th class="num">% of fund</th>
+            </tr>
+          </thead>
+          <tbody id="fdHoldingsBody">
+            <!-- populated by app.js -->
+          </tbody>
+        </table>
+
+        <p class="live-note" id="fdLiveNote">
+          <span class="live-dot"></span>Live prices update every 30 seconds during market hours.
+        </p>
+
+        <p class="disclosure">
+          Values shown combine live market prices (equities and ETFs) with the most
+          recent month-end statement for cash, money-market, and directly held Treasury
+          positions, which do not have a continuously quoted market price. Figures are
+          for informational purposes only and are not investment advice.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== PHOTOS / VIDEO ===================== -->
+  <main id="view-gallery" class="hidden">
+    <section class="panel" style="padding-top:44px;">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>From the trading room</h2>
+          <p>Student presentations, live pitches, and events — organized by semester.</p>
+        </div>
+
+        <!-- Album: General trading room -->
+        <div class="album">
+          <h3 class="album-title">Trading Room</h3>
+          <div class="photo-grid">
+            <a class="photo-item" href="img/gallery/trading-room-1.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/trading-room-1.jpg" alt="Student pitch presentation in the trading room" />
+            </a>
+            <a class="photo-item" href="img/gallery/trading-room-2.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/trading-room-2.jpg" alt="Students presenting a company timeline analysis" />
+            </a>
+            <a class="photo-item" href="img/gallery/trading-room-3.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/trading-room-3.jpg" alt="Student presenting on NVIDIA and the GPU market" />
+            </a>
+            <a class="photo-item" href="img/gallery/trading-room-4.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/trading-room-4.jpg" alt="Students presenting an Amazon buy recommendation" />
+            </a>
+            <a class="photo-item" href="img/gallery/trading-room-5.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/trading-room-5.jpg" alt="Wide view of the trading room and ticker tape" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Album: IAB Presentation - Fall 2024 -->
+        <div class="album">
+          <h3 class="album-title">IAB Presentation &mdash; Fall 2024</h3>
+          <div class="photo-grid">
+            <a class="photo-item" href="img/gallery/iab-presentation-fall-2024/iab-fall24-01.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/iab-presentation-fall-2024/iab-fall24-01.jpg" alt="IAB Presentation, Fall 2024, photo 1" />
+            </a>
+            <a class="photo-item" href="img/gallery/iab-presentation-fall-2024/iab-fall24-02.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/iab-presentation-fall-2024/iab-fall24-02.jpg" alt="IAB Presentation, Fall 2024, photo 2" />
+            </a>
+            <a class="photo-item" href="img/gallery/iab-presentation-fall-2024/iab-fall24-03.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/iab-presentation-fall-2024/iab-fall24-03.jpg" alt="IAB Presentation, Fall 2024, photo 3" />
+            </a>
+            <a class="photo-item" href="img/gallery/iab-presentation-fall-2024/iab-fall24-04.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/iab-presentation-fall-2024/iab-fall24-04.jpg" alt="IAB Presentation, Fall 2024, photo 4" />
+            </a>
+            <a class="photo-item" href="img/gallery/iab-presentation-fall-2024/iab-fall24-05.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/iab-presentation-fall-2024/iab-fall24-05.jpg" alt="IAB Presentation, Fall 2024, photo 5" />
+            </a>
+            <a class="photo-item" href="img/gallery/iab-presentation-fall-2024/iab-fall24-06.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/iab-presentation-fall-2024/iab-fall24-06.jpg" alt="IAB Presentation, Fall 2024, photo 6" />
+            </a>
+            <a class="photo-item" href="img/gallery/iab-presentation-fall-2024/iab-fall24-07.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/iab-presentation-fall-2024/iab-fall24-07.jpg" alt="IAB Presentation, Fall 2024, photo 7" />
+            </a>
+            <a class="photo-item" href="img/gallery/iab-presentation-fall-2024/iab-fall24-08.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/iab-presentation-fall-2024/iab-fall24-08.jpg" alt="IAB Presentation, Fall 2024, photo 8" />
+            </a>
+            <a class="photo-item" href="img/gallery/iab-presentation-fall-2024/iab-fall24-09.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/iab-presentation-fall-2024/iab-fall24-09.jpg" alt="IAB Presentation, Fall 2024, photo 9" />
+            </a>
+            <a class="photo-item" href="img/gallery/iab-presentation-fall-2024/iab-fall24-10.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/iab-presentation-fall-2024/iab-fall24-10.jpg" alt="IAB Presentation, Fall 2024, photo 10" />
+            </a>
+            <a class="photo-item" href="img/gallery/iab-presentation-fall-2024/iab-fall24-11.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/iab-presentation-fall-2024/iab-fall24-11.jpg" alt="IAB Presentation, Fall 2024, photo 11" />
+            </a>
+            <a class="photo-item" href="img/gallery/iab-presentation-fall-2024/iab-fall24-12.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/iab-presentation-fall-2024/iab-fall24-12.jpg" alt="IAB Presentation, Fall 2024, photo 12" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Album: Spring 2024 (video) -->
+        <div class="album">
+          <h3 class="album-title">Spring 2024</h3>
+          <div class="video-feature">
+            <video controls preload="metadata" poster="img/gallery/trading-room-5.jpg">
+              <source src="videos/trading-room.mp4" type="video/mp4" />
+              Your browser doesn't support embedded video.
+              <a href="videos/trading-room.mp4">Download the video</a> instead.
+            </video>
+          </div>
+        </div>
+
+        <!-- Album: Fall 2025 (trip and presentations) -->
+        <div class="album">
+          <h3 class="album-title">Fall 2025</h3>
+          <div class="photo-grid">
+            <a class="photo-item" href="img/gallery/fall-2025/fall25-01.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fall-2025/fall25-01.jpg" alt="Fall 2025 trip and presentations, photo 1" />
+            </a>
+            <a class="photo-item" href="img/gallery/fall-2025/fall25-02.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fall-2025/fall25-02.jpg" alt="Fall 2025 trip and presentations, photo 2" />
+            </a>
+            <a class="photo-item" href="img/gallery/fall-2025/fall25-03.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fall-2025/fall25-03.jpg" alt="Fall 2025 trip and presentations, photo 3" />
+            </a>
+            <a class="photo-item" href="img/gallery/fall-2025/fall25-04.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fall-2025/fall25-04.jpg" alt="Fall 2025 trip and presentations, photo 4" />
+            </a>
+            <a class="photo-item" href="img/gallery/fall-2025/fall25-05.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fall-2025/fall25-05.jpg" alt="Fall 2025 trip and presentations, photo 5" />
+            </a>
+            <a class="photo-item" href="img/gallery/fall-2025/fall25-06.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fall-2025/fall25-06.jpg" alt="Fall 2025 trip and presentations, photo 6" />
+            </a>
+            <a class="photo-item" href="img/gallery/fall-2025/fall25-07.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fall-2025/fall25-07.jpg" alt="Fall 2025 trip and presentations, photo 7" />
+            </a>
+            <a class="photo-item" href="img/gallery/fall-2025/fall25-08.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fall-2025/fall25-08.jpg" alt="Fall 2025 trip and presentations, photo 8" />
+            </a>
+            <a class="photo-item" href="img/gallery/fall-2025/fall25-09.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fall-2025/fall25-09.jpg" alt="Fall 2025 trip and presentations, photo 9" />
+            </a>
+            <a class="photo-item" href="img/gallery/fall-2025/fall25-10.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fall-2025/fall25-10.jpg" alt="Fall 2025 trip and presentations, photo 10" />
+            </a>
+            <a class="photo-item" href="img/gallery/fall-2025/fall25-11.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fall-2025/fall25-11.jpg" alt="Fall 2025 trip and presentations, photo 11" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Album: FI Presentation - Spring 2023 -->
+        <div class="album">
+          <h3 class="album-title">FI Presentation &mdash; Spring 2023</h3>
+          <div class="photo-grid">
+            <a class="photo-item" href="img/gallery/fi-presentation-spring-2023/fi-spring23-01.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fi-presentation-spring-2023/fi-spring23-01.jpg" alt="FI Presentation, Spring 2023, photo 1" />
+            </a>
+            <a class="photo-item" href="img/gallery/fi-presentation-spring-2023/fi-spring23-02.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fi-presentation-spring-2023/fi-spring23-02.jpg" alt="FI Presentation, Spring 2023, photo 2" />
+            </a>
+            <a class="photo-item" href="img/gallery/fi-presentation-spring-2023/fi-spring23-03.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fi-presentation-spring-2023/fi-spring23-03.jpg" alt="FI Presentation, Spring 2023, photo 3" />
+            </a>
+            <a class="photo-item" href="img/gallery/fi-presentation-spring-2023/fi-spring23-04.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fi-presentation-spring-2023/fi-spring23-04.jpg" alt="FI Presentation, Spring 2023, photo 4" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Album: FI Presentation - Spring 2026 -->
+        <div class="album">
+          <h3 class="album-title">FI Presentation &mdash; Spring 2026</h3>
+          <div class="photo-grid">
+            <a class="photo-item" href="img/gallery/fi-presentation-spring-2026/fi-spring26-01.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fi-presentation-spring-2026/fi-spring26-01.jpg" alt="FI Presentation, Spring 2026, photo 1" />
+            </a>
+            <a class="photo-item" href="img/gallery/fi-presentation-spring-2026/fi-spring26-02.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fi-presentation-spring-2026/fi-spring26-02.jpg" alt="FI Presentation, Spring 2026, photo 2" />
+            </a>
+            <a class="photo-item" href="img/gallery/fi-presentation-spring-2026/fi-spring26-03.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fi-presentation-spring-2026/fi-spring26-03.jpg" alt="FI Presentation, Spring 2026, photo 3" />
+            </a>
+            <a class="photo-item" href="img/gallery/fi-presentation-spring-2026/fi-spring26-04.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fi-presentation-spring-2026/fi-spring26-04.jpg" alt="FI Presentation, Spring 2026, photo 4" />
+            </a>
+            <a class="photo-item" href="img/gallery/fi-presentation-spring-2026/fi-spring26-05.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fi-presentation-spring-2026/fi-spring26-05.jpg" alt="FI Presentation, Spring 2026, photo 5" />
+            </a>
+            <a class="photo-item" href="img/gallery/fi-presentation-spring-2026/fi-spring26-06.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fi-presentation-spring-2026/fi-spring26-06.jpg" alt="FI Presentation, Spring 2026, photo 6" />
+            </a>
+            <a class="photo-item" href="img/gallery/fi-presentation-spring-2026/fi-spring26-07.jpg" target="_blank" rel="noopener">
+              <img src="img/gallery/fi-presentation-spring-2026/fi-spring26-07.jpg" alt="FI Presentation, Spring 2026, photo 7" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>South Hill Fund · Ithaca College School of Business</span>
+      <span>Data as of Aug 31, 2026 statements · Live quotes via delayed market data</span>
+    </div>
+  </footer>
+
+  <script src="js/app.js?v=9"></script>
+</body>
+</html>
